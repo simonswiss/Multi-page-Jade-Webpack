@@ -1,0 +1,15 @@
+//- ##### the navigation links mixin #####
+
+mixin navLink(link, active, name)
+  li.nav__item
+    a.nav__link(
+      href=link 
+      class={active: current === '#{active}'}
+    ) !{name}
+
+//- ######################################
+
+ul.nav
+  +navLink('/', 'index', 'Home')
+  +navLink('about.html', 'about', 'About')
+  +navLink('https://github.com/simonswiss/Multi-page-Jade-Webpack', '', 'GitHub &rarr;')
