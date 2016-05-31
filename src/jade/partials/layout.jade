@@ -1,0 +1,33 @@
+//- ##### the navigation links mixin #####
+
+mixin navLink(link, active, name)
+  li.nav__item
+    a.nav__link(
+      href=link 
+      class={active: current === '#{active}'}
+    )= name
+
+//- ######################################
+
+
+block config
+  - var current = 'main'
+  - var pageTitle = 'Jade, Stylus, ES6 & Webpack.'
+
+html
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1")
+    title= pageTitle
+    link(rel="stylesheet", href="./css/#{current}.css")
+  body
+    
+    ul.nav
+      +navLink('/', 'index', 'Home')
+      +navLink('about.html', 'about', 'About')
+
+    block main
+      // page content will come here.
+      
+    script(src='./js/#{current}.js')
+    
