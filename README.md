@@ -24,6 +24,7 @@ src/
   js/
     entries/
   stylus/
+  images/
 webpack-config
 ```
 
@@ -45,6 +46,8 @@ dist/
   js/
     page1.js
     page2.js
+    ...
+  images/
     ...
 ```
 
@@ -72,5 +75,3 @@ contact: PATHS.entries + 'contact.js'
 ## Entry Point File
 
 Finally, you need to create a new Webpack entry file, in the `src/js/entries/` folder. This is where you'll import your JS and CSS modules, which will let Webpack know how to bundle your code together.
-
-
