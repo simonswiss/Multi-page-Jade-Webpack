@@ -1,3 +1,5 @@
+const autoprefixer = require('autoprefixer')
+
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
@@ -41,7 +43,7 @@ module.exports = {
       {
         test: /\.(styl|css)$/,
         exclude: /node_modules/,
-        loader: ExtractTextPlugin.extract('style-loader', 'css-loader!stylus-loader')
+        loader: ExtractTextPlugin.extract('style-loader', 'css-loader!postcss-loader!stylus-loader')
       }
     ]
   },
@@ -52,5 +54,8 @@ module.exports = {
     new CopyWebpackPlugin([
       { from: 'src/images', to: 'images' }
     ])
-  ]
+  ],
+  postcss: function () {
+    return [autoprefixer];
+  }
 }
